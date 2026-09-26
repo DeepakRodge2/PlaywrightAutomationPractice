@@ -2,7 +2,7 @@
 //it can be redeclared and reassigned
 //it has function scope
 
-var a= 10;
+var a= 500;
 console.log(a);
 var a=20;
 a=30;
