@@ -49,5 +49,4 @@ console.log(p===q);
 console.log(p!=q);
 //!== strict not equal operator
 console.log(p!==q);
-
 //
