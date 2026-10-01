@@ -128,17 +128,3 @@ for (let i = 0; i < arr8.length; i++) {
         }
     }
 }
-var arr9=[10,20,30,40,50]
-var largert= -Infinity;
-var secondlargest= -Infinity
-for(var i=0;i<arr9.length;i++)
-{
-    if(arr9[i]>largert)
-    {
-
-        secondlargest=largert;
-        largert=arr9[i]
-        
-    }
-   
-}
