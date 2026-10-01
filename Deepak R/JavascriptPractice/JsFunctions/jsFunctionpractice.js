@@ -110,7 +110,7 @@ function deepak2(x1,x2=500)
  var x3=500;
  var x4=500;
  deepak2(x3,x4)
-
+console.log("########################")
  function checkevenodd(num)
  {
     if(num%2==0)
@@ -123,7 +123,7 @@ function deepak2(x1,x2=500)
  }
     var result1= checkevenodd(14)
     console.log(result1)
-
+console.log("#################################")
     function printevenvalue(range)
     {
         for(var i=0;i<=range;i++)
@@ -146,4 +146,70 @@ console.log("##########################")
         }
        }
        division(100)
-   
+   console.log("#####################################")
+   //arrow function:-this function is an anonyms function that does not have
+   //name we can store fucntion refrence in variable and use it 
+   var cubevalue=(num)=>
+   {
+    return num**3
+
+   }
+   console.log(cubevalue(5))
+
+
+   var factorial=(n)=>
+   {
+    fact =1
+    for(var i=n;i>0;i--)
+    {
+        fact*=i
+   }
+   return fact
+}
+   var result=factorial(5)
+   console.log(result)
+
+   console.log("###########################")
+
+   function addition(n1,n2)
+   {
+    return n1+n2;
+   }
+
+   function substract(n1,n2)
+   {
+    return n1-n2;
+   }
+
+   function multi(n1,n2)
+   {
+    return n1*n2
+   }
+   function division(n1,n2)
+   {
+    return n1/n2
+   }
+   function calculator(x1,x2,op)
+   {
+    if(op==1)
+    {
+        console.log("addition :",addition(x1,x2))
+    }
+    else if(op==2)
+    {
+        console.log("substraction :",substract(x1,x2))
+    }
+    else if(op==3)
+    {
+        console.log("multiplication :",multi(x1,x2))
+    }
+    else if(op==4)
+    {
+        console.log("division :",division(x1,x2))
+    }
+
+    
+   }
+    calculator(5,5,3);
+
+    
