@@ -1,0 +1,64 @@
+xpath and its methods
+//it is one of the locator to identify the element in the Dom structure
+//by travercing the node in the DOM structure
+1.Absulute xpath:-this type of xpath follow the complte dom structure to identify the element on given page
+ex: /html/body/div[1]/div[1]/div/main/article/div/div[1]/div[2]/div/input
+->not recommended due to unstability
+
+2.Relative Xpath:- this type of xpath focus on specific  attribute of the element and identify it uniquely
+e.g //tagname[@attribute='value'] = //input[@id='destcity']
+
+relative xpath has methods
+1.text method(): identify the element by text value
+   e.g //tagname[text()='text value']
+   ->  //a[text()='Automation Practice Page']
+       (//b[text()='Street address*'])[1] -.if mathich multiple element 
+
+2.contains(): identify the element by partial text value.
+   e.g //tagname[contains(text(),'partial text value')]
+       //h1[contains(text(),' Dummy Ticket Booking')]
+   
+3.normalize -space method():ignore unwanted space from element
+   e.g//tagname[normalize-space()='text value']
+   ->//button[normalize-space()='login']
+
+########################################################################################
+//Advance xpath method
+1.parent:-it can identify the parent element with the refrence of child
+    //childtag[@tagname='value]/parent::parenttag[@attribute='value']
+    //td[text()='Pune']/parent::tr
+
+2.ancester:-it can identify the element with the refrence of any of the grand child element
+      e.g //childtag[@tagname='value]/ancester::ancester_tag[@attribute='value']
+          //input[@value='radio_123]/ancester::div[@align='left']
+
+3.follwing:-using following method we can identify any element which is available below side of refrence element
+         //reftag[@tagname='value]/follwing::tar_tag[@attribute='value']
+         //input[@id='fromcity']/following::input[@id='billing_name']
+
+4.follwing-sibling:- it will identify any siblind which is avalible upeer side of refrence sibling
+                    it only identify the element in same family tree
+                  //reftag[@tagname='value]/follwing-sibling::tar_tag[@attribute='value']
+              e.g //td[text()='6005']/following-sibling::td
+          
+5.preciding:-using the preciding method we can identify any element whic is available  upper side of refrence element on dom
+       //reftag[@tagname='value]/follwing::tar_tag[@attribute='value']
+       //label[text()='fromcity']/preciding::input[@class='entire-title']
+
+6.preciding-sibling:-it will identify any siblind wich is available upper sider of refrence sibling
+                      it only identify the element in same family tree
+                   //reftag[@tagname='value]/preciding-sibling::tar_tag[@attribute='value']
+                    e.g //td[text()='6005']/preciding-sibling::td/input
+
+#####################################################################################
+Css selector
+1.by class name:- when element has class attribute the we can identify the element by using .classname
+2.by id attribute:-when elememt has id attribute then we can identify the element byb using #id
+3.by nevigation:-[lease recommended]
+            e.g div>ul>li>input[value=radio_678]
+4.by attribute name:- find the element by using any attribute value
+         e.g input[placeholder="username"]
+            input[placeholder="password"]
+
+
+
