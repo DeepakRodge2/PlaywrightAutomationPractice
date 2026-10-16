@@ -2,7 +2,7 @@ import {  expect } from '@playwright/test'
 import{test} from '../../Fixtures/basefixtures.ts'
 //import { pagemanager } from '../../Pages/Common/Pagemanager.ts'
 import * as TestData from '../../test-data/Test_data.ts';
-test.describe("check login page", () => {
+  test.describe("check login page", () => {
     test("test login page", async ({ Pagemanager }) => {
        // const pageManage = new pagemanager(page)
         await Pagemanager.suceapploginpg.navigate(TestData.SAUCELAB_URL);

@@ -21,7 +21,6 @@ export class inventorypage extends inventorypagelocator{
           await this.clickshoppingcartbadge.click();
 
     }
-    
     async removeitemfromcart(itemnames:string[])
     {
         for(const item of itemnames)
@@ -31,7 +30,6 @@ export class inventorypage extends inventorypagelocator{
            await this.click(clickonRemovebtn)
          }
         }
-
         
     async verifyItem(itemnames:string[]):Promise<boolean[]>
     {

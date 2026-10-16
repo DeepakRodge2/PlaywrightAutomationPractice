@@ -13,5 +13,5 @@ export class inventorypagelocator extends BasePage{
     {
         return this.page.locator(".shopping_cart_link")
     }
-   
+  
 }
