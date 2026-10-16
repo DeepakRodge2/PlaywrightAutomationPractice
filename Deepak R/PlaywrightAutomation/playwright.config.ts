@@ -16,7 +16,7 @@ export default defineConfig({
   timeout:40_000, //global timeout for each testcases
   expect:{timeout:30_0000},
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
  //orbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -37,6 +37,7 @@ export default defineConfig({
       slowMo:2000
     },
     actionTimeout:15_000,
+    headless:false,
   },
 
   /* Configure projects for major browsers */

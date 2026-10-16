@@ -8,8 +8,13 @@ import * as TestData from '../../test-data/Test_data.ts';
         await Pagemanager.suceapploginpg.navigate(TestData.SAUCELAB_URL);
         await Pagemanager.suceapploginpg.loginfunction2(TestData.SAUCELAB_Username,TestData.SAUCELAB_Password)
         await expect(Pagemanager.suceapploginpg.dashboardheding).toBeVisible()
+    });
 
        // const items = ['Sauce Labs Backpack', 'Sauce Labs Bolt T-Shirt', 'Sauce Labs Onesie']
+        test("add and remove item from cart and verify",async({Pagemanager})=>{
+        await Pagemanager.suceapploginpg.navigate(TestData.SAUCELAB_URL);
+        await Pagemanager.suceapploginpg.loginfunction2(TestData.SAUCELAB_Username,TestData.SAUCELAB_Password)
+        await expect(Pagemanager.suceapploginpg.dashboardheding).toBeVisible()
         await Pagemanager.inventorypg.additemtocart(TestData.Shopping_item)
         await Pagemanager.inventorypg.nevigatetoshoppingcart()
 
@@ -21,5 +26,5 @@ import * as TestData from '../../test-data/Test_data.ts';
         expect(removedItemsVisible).not.toContain(true)
 
         await Pagemanager.logoutpg.clickonlogout()
-    })
-})
+       })
+      })
