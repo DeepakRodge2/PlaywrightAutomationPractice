@@ -1,7 +1,7 @@
 import{test}from '@playwright/test'
 test.describe("Locator chaining",()=>
 {
-    test.skip("first test cases",async({page})=>
+    test("first test cases",async({page})=>
 {
 
     await page.goto("https://sqatools.in/dummy-booking-website/")

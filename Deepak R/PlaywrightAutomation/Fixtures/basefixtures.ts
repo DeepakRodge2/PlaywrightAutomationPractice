@@ -2,9 +2,11 @@ import { test as base,Page } from '@playwright/test';
 import { pagemanager } from '../Pages/Common/Pagemanager';
 
 type MyFixtures = {
-     Pagemanager: pagemanager;
-         mypage:    Page
-         workerpage: Page
+         Pagemanager: pagemanager;
+         mypage:    Page;
+         workerpage: any;
+         myPage1:   Page;
+         PageM: pagemanager;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -25,8 +27,20 @@ export const test = base.extend<MyFixtures>({
      await context.close()
 
   },
-    //this fixture will run all test files without reloading browser
-  workerpage :[async({browser},use) =>
+  myPage1 :async({browser},use) =>
+  {
+    const context=await browser.newContext()//created browser context
+    const Page=await context.newPage()//created new page
+    await Page.goto("https://www.saucedemo.com/")//lunch url
+    await use(Page)
+
+    //teardown to close the broswer context
+     await context.close()
+  },
+  
+
+//     //this fixture will run all test files without reloading browser
+  workerpage :[async({browser},use:any) =>
   {
     const context=await browser.newContext()//created browser context
     const Page=await context.newPage()//created new page
@@ -35,5 +49,16 @@ export const test = base.extend<MyFixtures>({
 
     //teardown to close the broswer context
      await context.close()
-  },{scope:'worker'}]
+  },{scope:'worker'}],
+
+
+    PageM: [async ({ browser }, use) => {
+    const context = await browser.newContext();
+    const Page = await context.newPage();
+
+    await use(new pagemanager(Page));
+
+    // Teardown
+    await context.close();
+}, { scope: 'worker' }],
 });
