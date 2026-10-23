@@ -1,0 +1,43 @@
+step to step guide to read value from envionment
+step1: install the dotenv package on project directory.
+  command:-npm install dotenv
+
+step2:create .env envionment file in project root directory.
+      create the file name as .env.qa and below is the content
+      BASE_URL=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+      USERNAME_VALUE=Admin
+      PASSWORD=Admin@123
+
+     -> similarly we can create two other file as well
+
+      ->.env.stage
+      ->.env.prod
+     ->variable name will be same only value is going to chnage as per envionment
+
+ step3:-update configue file to read the vlaue from envionment
+        update configue.file with below content and save it 
+
+        import dotenv from 'dotenv';
+        import path from 'path';
+        dotenv.config({ path: path.resolve(__dirname, '.env.stag') });
+
+step4:-create the test file and read vlaue from envirnment variables.
+      
+       test.describe"read value from envirnmant",()=>
+
+    test("read data from envionrnment",async()=>
+    {
+    console.log(process.env.BASE_URL)
+    console.log(process.env.USERNAME_VALUE)
+    console.log(process.env.PASSWORD)
+    console.log(process.env.ENV)
+
+    })
+
+step5:- follow below comandlind to set envionment
+       >run command to set envionment
+       >$env:ENV="Prod" :powershell
+       >set ENV=qa :windows CMD
+
+step6:- Execite the test file,it should read value from diffrent envionment as per we set the envionment
+        

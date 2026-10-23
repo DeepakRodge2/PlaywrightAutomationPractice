@@ -1,0 +1,47 @@
+API(Application programming interface)
+
+two types of Api on architecture level
+1.Rest API
+   -Rest Support  JSON as Input
+   -when we talk about web app and mobile app generally application developer use REST API
+   -Rest apis are lightweight is does not contain any cache
+2.SOAP API
+    -API support XML,JSON, and normal text as an input value
+    -in enterprise level product where secuirty is a concern then prefer to use SOAP API
+    -SOAP api are heavier than rest api.it contain cache value thire and it save the state
+
+
+thire are 3 types of apis on the basis of usage
+1.public:public api are avalilable to access anyone and anywhere
+
+2.subscripton bases API:subscription base api are avilable only for those who subscribe to the apis service
+                        ex google map api using by swiggy ,zoomato
+
+3.private or internal api:-private are limited to any application level or organizational level access
+
+
+there are three level of appication developement
+1.presentaion layer:-is the part of an application that the user sees and interacts with. It is also called the UI (User Interface) Layer.
+
+2.buisness layer:-what is busness layer
+Business Layer is the part of an application that contains the application's business logic and rules. It decides how the application should work based on the requirements.
+
+3.database layer:-database Layer is the part of an application responsible for storing, retrieving, updating, and deleting data in a database. It is also called the Data Layer.
+
+#.we will automate the REST API.to automate the rest api 
+internally it use the protocol that is called the HTTP protocol
+
+#.there are some methods are avalibale in the HTTP protocol that help us to execute the API?
+1.get
+2.post
+3.put
+4.patch
+5.delete
+
+#there are diffrent type of status code
+1.100:199:this is for informational status code
+2.200 to 299: success opeartion status code
+3.300 to 399 : then redirectional status code
+4.400 to 499 : client error
+5.500 to 599 : server error
+
