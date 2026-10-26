@@ -1,0 +1,17 @@
+{
+  "name": "sqa-tools-playwright-cucumber",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cucumber BDD tests for the SQA Tools automation practice page",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:smoke": "cucumber-js --tags @smoke",
+    "test:headed": "set HEADLESS=false&& cucumber-js",
+    "test:report": "node -e \"require('node:fs').mkdirSync('test-results',{recursive:true})\" && cucumber-js --format progress --format json:test-results/cucumber-report.json",
+    "install:browsers": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.56.0"
+  }
+}
