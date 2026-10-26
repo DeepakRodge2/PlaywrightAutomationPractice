@@ -1,0 +1,103 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install declared dependencies and run test suite",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"node --version && npm --version && npm install && npm exec playwright install chromium && npm test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Capture concise Cucumber summary",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"npm test -- --format summary"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run tests with concise JSON summary",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"-e",
+				"const {spawnSync}=require('child_process'); const r=spawnSync('npm',['test','--','--format','json'],{shell:true,encoding:'utf8',maxBuffer:30*1024*1024}); const o=r.stdout||''; const i=o.indexOf('['); if(i<0){console.log('npm test produced no JSON. exit='+r.status+'\\n'+o+'\\n'+(r.stderr||'')); process.exit(r.status||1)} let fs; try{fs=JSON.parse(o.slice(i))}catch(e){console.log('Could not parse Cucumber JSON: '+e.message+'\\n'+o.slice(-2000));process.exit(1)} const ss=fs.flatMap(f=>(f.elements||[]).filter(x=>x.type==='scenario'||x.keyword==='Scenario'||x.keyword==='Scenario Outline')); const fails=ss.flatMap(s=>s.steps.filter(x=>x.result&&x.result.status==='failed').map(x=>({s:s.name,step:x.name,error:x.result.error_message||''}))); console.log('Scenarios: '+ss.length+'; passed: '+(ss.length-fails.length)+'; failed: '+fails.length+'; features: '+fs.length); for(const f of fails){console.log('FAIL '+f.s+' / '+f.step+': '+f.error.split('\\n').slice(0,3).join(' ').slice(0,550))} if(r.stderr) console.log('npm stderr: '+r.stderr.slice(0,1000)); process.exit(fails.length||r.status||0)"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "BDD test run",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "BDD focused verification",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"cucumber-js",
+				"--tags",
+				"@AP-DLG-01 or @AP-DLG-02 or @AP-DLG-03 or @AP-STALE-01 or @AP-SUG-01"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "BDD full verification",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "BDD final full suite",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "BDD link test",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"cucumber-js",
+				"features/dates-links-table-frame.feature",
+				"--name",
+				"Navigate to the bottom of the page"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "BDD final verification",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"test"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
